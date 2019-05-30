@@ -2,6 +2,6 @@
 *.iml
 .idea
 f:
-tgitarget
+target
 .mvn
 
