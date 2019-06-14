@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.util.CollectionUtils;
-
+@SuppressWarnings ("all")
 public class RedisUtil {
 
     private RedisTemplate<String, Object> redisTemplate;
