@@ -25,33 +25,30 @@ public class SaticScheduleTask {
     //或直接指定时间间隔，例如：5秒
 
 
-    @Autowired
-    private IAreaService iAreaService;
-
     @Scheduled(fixedRate = 5000)
     private void configureTasks() {
         System.err.println ("执行静态定时任务时间: " + LocalDateTime.now ());
         // TODO Auto-generated method stub
-        Process process ;
+        Process process;
         //.sh文件的绝对路径
         String command = "chmod 777/bin/sh/Users/test/install.sh";
-       // String command1 = "chmod 777 " + shpath;
+        // String command1 = "chmod 777 " + shpath;
         List<String> processList = new ArrayList<String> ();
 
         try {
-            process = Runtime.getRuntime().exec(command);
+            process = Runtime.getRuntime ().exec (command);
             int res = process.waitFor ();
-            BufferedReader input = new BufferedReader (new InputStreamReader (process.getInputStream()));
+            BufferedReader input = new BufferedReader (new InputStreamReader (process.getInputStream ()));
             String line = "";
-            while ((line = input.readLine()) != null) {
-                processList.add(line);
+            while ((line = input.readLine ()) != null) {
+                processList.add (line);
             }
-            input.close();
+            input.close ();
         } catch (Exception e) {
-            e.printStackTrace();
+            e.printStackTrace ();
         }
         for (String line : processList) {
-            System.out.println(">>>>>>>>>>>>>>>"+line);
+            System.out.println (">>>>>>>>>>>>>>>" + line);
         }
 
     }
